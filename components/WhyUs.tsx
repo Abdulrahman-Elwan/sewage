@@ -39,7 +39,7 @@ const whyUsFeatures = [
 
 export default function WhyUs() {
   return (
-    <section className="relative overflow-hidden py-10 lg:py-15">
+    <section id="whyUs" className="relative overflow-hidden py-10 lg:py-15">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <WhyUsReveal
           className="relative overflow-hidden rounded-2xl"
