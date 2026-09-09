@@ -10,7 +10,7 @@ const links = [
   { href: "#home", label: "الرئيسية" },
   { href: "#services", label: "خدماتنا" },
   { href: "#gallery", label: "أعمالنا" },
-  { href: "#sectors", label: "المناطق" },
+  { href: "#why-us", label: "لماذا نحن" },
   { href: "#testimonials", label: "آراء عملائنا" },
   { href: "#contact", label: "تواصل معنا" },
 ];
