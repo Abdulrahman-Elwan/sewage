@@ -9,7 +9,7 @@ const tajawal = Tajawal({
   display: "swap",
 });
 
-const siteUrl = "https://tasleek-example.sa";
+const siteUrl = "https://sewage-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -69,6 +69,22 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={tajawal.variable}>
       <body className="font-arabic bg-white text-navy antialiased">
         {children}
+
+        {/* Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18440415657"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-18440415657');
+          `}
+        </Script>
       </body>
     </html>
   );
