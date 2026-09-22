@@ -12,6 +12,8 @@ const tajawal = Tajawal({
 
 const siteUrl = "https://sewage-one.vercel.app";
 
+const GOOGLE_ADS_ID = "AW-18440415657";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -47,6 +49,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -71,40 +74,24 @@ export default function RootLayout({
       <body className="font-arabic bg-white text-navy antialiased">
         {children}
 
-        {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        {/* Google Ads / Google Tag */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-tag" strategy="afterInteractive">
           {`
-            (function(w,d,s,l,i){
-              w[l]=w[l]||[];
-              w[l].push({
-                'gtm.start': new Date().getTime(),
-                event:'gtm.js'
-              });
+            window.dataLayer = window.dataLayer || [];
 
-              var f=d.getElementsByTagName(s)[0],
-                  j=d.createElement(s),
-                  dl=l!='dataLayer'?'&l='+l:'';
+            function gtag() {
+              window.dataLayer.push(arguments);
+            }
 
-              j.async=true;
-              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-
-              f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TJJHXK3C');
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
           `}
         </Script>
-
-        {/* Google Tag Manager - noscript fallback */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TJJHXK3C"
-            height="0"
-            width="0"
-            style={{
-              display: "none",
-              visibility: "hidden",
-            }}
-          />
-        </noscript>
       </body>
     </html>
   );
