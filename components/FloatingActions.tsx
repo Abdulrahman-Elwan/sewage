@@ -28,7 +28,7 @@ export default function FloatingActions() {
             {/* =========================
           Floating Contact Actions
       ========================== */}
-            <div className="fixed bottom-5 left-4 z-50 flex flex-col items-start gap-3 sm:left-6 sm:bottom-6">
+            <div className="fixed bottom-5 right-4 z-50 flex flex-col items-start gap-3 sm:right-6 sm:bottom-6">
                 {/* =========================
             Call Now
         ========================== */}
@@ -82,10 +82,6 @@ export default function FloatingActions() {
 
                     {/* Text */}
                     <span className="flex flex-col items-start leading-tight">
-                        <span className="text-[10px] font-medium opacity-90 sm:text-[11px]">
-                            للاستفسار والحجز
-                        </span>
-
                         <span className="text-sm font-extrabold sm:text-base">
                             اتصل الآن
                         </span>
@@ -146,10 +142,6 @@ export default function FloatingActions() {
 
                     {/* Text */}
                     <span className="flex flex-col items-start leading-tight">
-                        <span className="text-[10px] font-medium opacity-90 sm:text-[11px]">
-                            متاحون للرد
-                        </span>
-
                         <span className="text-sm font-extrabold sm:text-base">
                             تواصل عبر واتساب
                         </span>
