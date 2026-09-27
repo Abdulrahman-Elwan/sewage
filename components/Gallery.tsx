@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Play, Phone } from "lucide-react";
+import { Play } from "lucide-react";
 
 import { workGallery } from "@/data/workGallery";
 import GalleryReveal from "./_UI/GalleryReveal";
@@ -16,7 +16,9 @@ export default function Gallery() {
       className="bg-navy-50 py-10 lg:py-15"
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        {/* Section Header */}
+        {/* =========================
+            Section Header
+        ========================== */}
         <GalleryReveal
           delay={0}
           className="mx-auto max-w-2xl text-center"
@@ -42,7 +44,9 @@ export default function Gallery() {
           </p>
         </GalleryReveal>
 
-        {/* Gallery */}
+        {/* =========================
+            Gallery
+        ========================== */}
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {workGallery.map((src, index) => {
             const video = isVideo(src);
@@ -59,39 +63,47 @@ export default function Gallery() {
               >
                 <div className="group relative overflow-hidden rounded-3xl bg-white shadow-card">
                   <div
-                    className={`relative ${index === 0
+                    className={`relative ${
+                      index === 0
                         ? "aspect-[16/9]"
                         : "aspect-[4/3]"
-                      } ${index === 1 ? "h-full" : ""}`}
+                    } ${index === 1 ? "h-full" : ""}`}
                   >
                     {video ? (
                       <video
                         src={src}
                         controls
-                        preload="metadata"
+                        preload="none"
                         playsInline
-                        className={`h-full w-full object-cover ${index === 1 ? "object-contain" : ""
-                          }`}
-                        aria-label={`فيديو من أعمالنا رقم ${index + 1
-                          }`}
+                        className={`h-full w-full object-cover ${
+                          index === 1 ? "object-contain" : ""
+                        }`}
+                        aria-label={`فيديو من أعمالنا رقم ${
+                          index + 1
+                        }`}
                       />
                     ) : (
                       <Image
                         src={src}
-                        alt={`صورة من أعمال وخدمات الصرف الصحي - ${index + 1
-                          }`}
+                        alt={`صورة من أعمال وخدمات الصرف الصحي - ${
+                          index + 1
+                        }`}
                         fill
+                        loading="lazy"
                         sizes={
                           index === 0
                             ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
                             : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         }
-                        className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${index === 1 ? "object-contain" : ""
-                          }`}
+                        className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                          index === 1 ? "object-contain" : ""
+                        }`}
                       />
                     )}
 
-                    {/* Video Badge */}
+                    {/* =========================
+                        Video Badge
+                    ========================== */}
                     {video && (
                       <div
                         className="pointer-events-none absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white backdrop-blur-sm"
@@ -101,7 +113,9 @@ export default function Gallery() {
                       </div>
                     )}
 
-                    {/* Overlay */}
+                    {/* =========================
+                        Image Overlay
+                    ========================== */}
                     {!video && (
                       <div
                         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
